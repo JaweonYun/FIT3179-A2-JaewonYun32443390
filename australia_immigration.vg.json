@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ 
+  "data": {
+    "url": "data/australia_data.csv"
+  },
+  "mark": {
+    "type": "bar",
+    "stroke": null            
+  },
+  "encoding": {
+    "x": { 
+      "field": "year", 
+      "type": "ordinal", 
+      "title": "Year", 
+      "axis": { 
+        "labelAngle": -45,
+        "titleColor": "white",   
+        "labelColor": "white",  
+        "titleFont": "Arial",    
+        "labelFont": "Arial"     
+      }
+    },
+    "y": { 
+      "aggregate": "sum", 
+      "field": "Immigration", 
+      "type": "quantitative", 
+      "title": "Total Immigration",
+      "axis": {
+        "titleColor": "white",  
+        "labelColor": "white", 
+        "titleFont": "Arial",   
+        "labelFont": "Arial"     
+      }
+    },
+    "color": {
+      "field": "AreaName",   
+      "type": "nominal",
+      "legend": { 
+        "title": "Continent", 
+        "titleColor": "white",  
+        "titleFont": "Arial",   
+        "labelColor": "white",   
+        "labelFont": "Arial"     
+      },
+      "scale": {
+        "domain": ["Africa", "Asia", "Europe", "Northern America", "Oceania"],
+        "range": ["#DEEDCF", "#99D492", "#39A96B", "#188977", "#0E4D64"]
+      }
+    },
+    "tooltip": [
+      { "field": "OdName", "type": "nominal", "title": "Country" },
+      { "field": "AreaName", "type": "nominal", "title": "Continent" },
+      { "field": "year", "type": "ordinal", "title": "Year" },
+      { "field": "Immigration", "type": "quantitative", "title": "Immigration" }
+    ]
+  },
+  "transform": [
+    {
+      "fold": [
+        "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", 
+        "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", 
+        "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", 
+        "2004", "2005", "2006", "2007", "2008"
+      ],
+      "as": ["year", "Immigration"]
+    }
+  ],
+  "config": {
+    "background": "transparent"  
+  }
+}

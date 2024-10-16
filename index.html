@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <title>The History of Australian Immigration</title>
+
+    <style>
+
+        html, body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #041727, #bdbfc2);
+            font-family: Arial, sans-serif;
+        }
+
+       
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: white;
+            margin: 10px 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;  
+            margin-bottom: px; 
+        }
+
+
+        p {
+            color: white;
+            font-size: 1rem;
+            margin: 15px 0;
+        }
+
+        .chart-container {
+            width: 80%;
+            max-width: 800px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="regions_div" style="width: 1300px; height: 250px;"></div>
+
+        <h1>The History of Australian Immigration</h1>
+        <h2>Explore how immigration patterns changed from 1980 to 2018</h2>
+
+        <h3>Data Visualisation by Jaewon Yun</h3>
+
+        <div id="regions_div" style="width: 1300px; height: 150px;"></div>
+
+        <div class="chart-container" id="world_map"></div>
+
+        <p>This world map illustrates the global origins of immigrants who have settled in Australia over the years.</p>
+
+        <div id="regions_div" style="width: 1300px; height: 50px;"></div>
+
+        <h2>Stacking Australian Immigration by Continent</h2>
+
+        <div id="regions_div" style="width: 1300px; height: 50px;"></div>
+        
+        <div class="chart-container" id="bar_chart"></div>
+
+        <p>The bar chart shows the annual immigration trends, segmented by continent, highlighting variations in migration flows across years.</p>
+
+        <h2>Top 5 Source Countries</h2>
+
+        <div id="regions_div" style="width: 1300px; height: 50px;"></div>
+
+        <div class="chart-container" id="Top_5"></div>
+
+        <div id="regions_div" style="width: 1300px; height: 200px;"></div>
+
+        <p>Here are the top 5 countries that have contributed the most immigrants to Australia during the specified period.</p>
+        
+        <div id="regions_div" style="width: 1300px; height: 50px;"></div>
+
+        <h2>1980 Top Continents</h2>
+
+        <div id="regions_div" style="width: 1300px; height: 50px;"></div>
+
+        <div class="chart-container" id="Pie_Chart_1"></div>
+
+        <p>This pie chart reveals the proportion of immigrants from different continents in 1980, providing a snapshot of early migration patterns.</p>
+        
+        <div id="regions_div" style="width: 1300px; height: 50px;"></div>
+
+        <h2>2018 Top Continents</h2>
+
+        <div id="regions_div" style="width: 1300px; height: 50px;"></div>
+
+        <div class="chart-container" id="Pie_Chart_2"></div>
+
+        <p>In comparison, this pie chart illustrates the continent-wise distribution of immigrants in 2018, showing how trends have evolved.</p>
+
+        <div id="regions_div" style="width: 1300px; height: 300px;"></div>
+
+        <h2>Data Source: https://www.kaggle.com/datasets/rinichristy/australia-immigration-data </h2>
+    </div>
+
+    <script>
+        var vg_1 = "australia_immigration.vg.json";
+        vegaEmbed("#bar_chart", vg_1).then(function (result) {
+        }).catch(console.error);
+
+        var vg_2 = "vega_map.vg.json";
+        vegaEmbed("#world_map", vg_2).then(function (result) {
+        }).catch(console.error);
+
+        var vg_3 = "Top_5_Countries.vg.json";
+        vegaEmbed("#Top_5", vg_3).then(function (result) {
+        }).catch(console.error);
+
+        var vg_4 = "1980_PC.vg.json";
+        vegaEmbed("#Pie_Chart_1", vg_4).then(function (result) {
+        }).catch(console.error);
+
+        var vg_5 = "2018_PC.vg.json";
+        vegaEmbed("#Pie_Chart_2", vg_5).then(function (result) {
+        }).catch(console.error);
+    </script>
+</body>
+
+</html>

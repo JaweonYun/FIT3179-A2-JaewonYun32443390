@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": "transparent",
+    "data": {
+      "values": [
+        {"Country": "United Kingdom", "TotalImmigrants": 1289800},
+        {"Country": "New Zealand", "TotalImmigrants": 864390},
+        {"Country": "United States", "TotalImmigrants": 439900},
+        {"Country": "China", "TotalImmigrants": 386320},
+        {"Country": "Hong Kong (SAR)", "TotalImmigrants": 384470}
+      ]
+    },
+    "mark": "bar",
+    "width": 300,
+    "height": 500,
+    "encoding": {
+      "x": {
+        "field": "Country",
+        "type": "ordinal",
+        "sort": "-y",
+        "axis": {
+          "title": "Country",
+          "titleFont": "Arial",
+          "titleColor": "white",
+          "labelFont": "Arial",
+          "labelColor": "white"
+        }
+      },
+      "y": {
+        "field": "TotalImmigrants",
+        "type": "quantitative",
+        "axis": {
+          "title": "Total Immigrants",
+          "titleFont": "Arial",
+          "titleColor": "white",
+          "labelFont": "Arial",
+          "labelColor": "white"
+        }
+      },
+      "color": {
+        "field": "Country",
+        "type": "nominal",
+        "scale": {
+          "domain": ["United Kingdom", "New Zealand", "United States", "China", "Hong Kong (SAR)"],
+          "range": ["#39A96B", "#0E4D64", "#188977", "#99D492", "#99D492"]  
+        },
+        "legend": {
+          "title": "Country",
+          "titleFont": "Arial",
+          "titleColor": "white",
+          "labelFont": "Arial",
+          "labelColor": "white"
+        }
+      }
+    }
+  }
+  

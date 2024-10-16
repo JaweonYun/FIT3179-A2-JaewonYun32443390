@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "transparent",
+  "data": {
+    "values": [
+      {"Continent": "Africa", "TotalImmigrants": 29180},
+      {"Continent": "Asia", "TotalImmigrants": 299610},
+      {"Continent": "Europe", "TotalImmigrants": 106090},
+      {"Continent": "Latin America and the Caribbean", "TotalImmigrants": 10650},
+      {"Continent": "Northern America", "TotalImmigrants": 28840},
+      {"Continent": "Oceania", "TotalImmigrants": 56630}
+    ]
+  },
+  "mark": {
+    "type": "arc",
+    "outerRadius": 200
+  },
+  "encoding": {
+    "theta": {
+      "field": "TotalImmigrants",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Continent",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Africa", 
+          "Asia", 
+          "Europe", 
+          "Latin America and the Caribbean", 
+          "Northern America", 
+          "Oceania"
+        ],
+        "range": [
+          "#DEEDCF",  
+          "#99D492", 
+          "#39A96B", 
+          "#E9F7EF", 
+          "#188977",  
+          "#0E4D64"   
+        ]
+      },
+      "legend": {
+        "title": "Continent (2008)",
+        "titleFont": "Arial",
+        "titleColor": "white",
+        "labelFont": "Arial",
+        "labelColor": "white",
+        "orient": "right",  
+        "offset": 130       
+      }
+    },
+    "tooltip": [
+      {"field": "Continent", "type": "nominal"},
+      {"field": "TotalImmigrants", "type": "quantitative"}
+    ]
+  }
+}

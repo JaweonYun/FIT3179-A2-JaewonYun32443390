@@ -1,0 +1,73 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 450,
+  "projection": {
+    "type": "equalEarth"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+    "format": {
+      "type": "topojson",
+      "feature": "ne_110m_admin_0_countries"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.ISO_A3",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/JaweonYun/FIT3179-A2-Jaewon-Yun-32443390/refs/heads/main/data/final_country_immigration_data.csv"
+        },
+        "key": "Code",
+        "fields": ["Total_Immigration"]
+      }
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "transparent",  
+    "fillOpacity": 1  
+  },
+  "encoding": {
+    "color": {
+      "field": "Total_Immigration",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "goldorange"
+      },
+      "legend": {
+        "title": "Total Immigration",
+        "titleFont": "Arial",
+        "titleColor": "white",
+        "labelFont": "Arial",
+        "labelColor": "white"
+      }
+    },
+    "tooltip": [
+      {"field": "properties.ISO_A3", "type": "nominal", "title": "Country Code"},
+      {"field": "Total_Immigration", "type": "quantitative", "title": "Immigration"}
+    ]
+  },
+  "config": {
+    "background": "transparent", 
+    "title": {
+      "font": "Arial",
+      "color": "white"
+    },
+    "axis": {
+      "titleFont": "Arial",
+      "titleColor": "white",
+      "labelFont": "Arial",
+      "labelColor": "white"
+    },
+    "legend": {
+      "titleFont": "Arial",
+      "titleColor": "white",
+      "labelFont": "Arial",
+      "labelColor": "white"
+    }
+    
+  }
+  
+}
